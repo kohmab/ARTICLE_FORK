@@ -24,9 +24,9 @@ field_intensity = 1e8  # W/cm^2
 # Program parameters
 epsDmin = 1
 epsDmax = 1.8
-NepsD = 4
-Nw = 3
-Nr = 4
+NepsD = 400
+Nw = 51
+Nr = 100
 #
 sorted_locals = sorted(locals().items(), key=lambda item: item[0])
 hash_names = {k: v for k, v in sorted_locals if isinstance(v, float) or isinstance(v, int)}
@@ -108,6 +108,8 @@ ax.plot(epsD, max_losses, label='max loss')
 for m, losses in enumerate(mult_losses):
     ax.plot(epsD, losses, color=colors[m])
 ax.grid()
+ax.legend()
+ax.set_xlabel("epsD")
 plt.show()
 
 print("done")
