@@ -17,7 +17,7 @@ from losses import getLosses, generateFilename
 Vf = 1.07e8  # cm/s
 wp_eV = 5.71  # eV
 nu_eV = 0.03  # 0.0276  # eV
-radius = 7e-7  # cm
+radius = 10e-7  # cm
 epsInf = 1
 field_intensity = 1e8  # W/cm^2
 
@@ -25,7 +25,7 @@ field_intensity = 1e8  # W/cm^2
 epsDmin = 1
 epsDmax = 1.8
 NepsD = 400
-Nw = 51
+Nw = 151
 Nr = 100
 #
 sorted_locals = sorted(locals().items(), key=lambda item: item[0])
@@ -50,7 +50,7 @@ par_dip = ClusPar(nu_dip, alpha, epsD[0], epsInf)
 
 # Preparations
 w0 = FrFnd(par_dip).getResonanceFrequencies(1, 1).real
-w_range = w0 + np.linspace(-2, 2, Nw) * nu_dip
+w_range = w0 + np.linspace(-10, 10, Nw) * nu_dip
 max_losses = np.zeros_like(epsD)
 max_losses_freq = np.zeros_like(epsD)
 mult_losses: List[np.ndarray] = [np.zeros_like(epsD) for i in range(3)]

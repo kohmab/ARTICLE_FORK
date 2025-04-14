@@ -10,30 +10,30 @@ from fig_beta_intensity import calc_beta
 from freqFinder import FreqFinder as FrFnd
 from losses import generateFilename
 
-fig, ax = plt.subplots(figsize=(5, 4), layout='constrained')
 
 # Sodium cluster and field:
 Vf = 1.07e8  # cm/s
 wp_eV = 5.71  # eV
-nu_eV = 0.0276  # 0.0276  # eV
+nu_eV = 0.03  # 0.0276  # eV
 epsInf = 1
 field_intensity = 1e8  # W/cm^2
 
 # Program parameters
 epsDmin = 1
 epsDmax = 1.8
-NepsD = 500
-Nw = 500
-Nr = 400
+NepsD = 400
+Nw = 151
+Nr = 100
 hash_str = []
-radii = (5e-7, 10e-7)
-
+#radii = (7e-7, 10e-7)
+radii = (7e-7, 10e-7)
 for radius in radii:  # cm
     #
     sorted_locals = sorted(locals().items(), key=lambda item: item[0])
     hash_names = {k: v for k, v in sorted_locals if isinstance(v, float) or isinstance(v, int)}
     hash_str.append(generateFilename(*hash_names.values()))
     #
+fig, ax = plt.subplots(figsize=(5, 4), layout='constrained')
 
 colors = {0: '#77AB30', 1: '#D95A19'}
 linestyles = ["--", ":", "-."]
@@ -54,7 +54,7 @@ for i, radius in enumerate(radii):
 
     # Preparations
     w0 = FrFnd(par_dip).getResonanceFrequencies(1, 1).real
-    w_range = w0 + np.linspace(-2, 2, Nw) * nu_dip
+    w_range = w0 + np.linspace(-10, 10, Nw) * nu_dip
     max_losses = np.zeros_like(epsD)
     max_losses_freq = np.zeros_like(epsD)
     mult_losses: List[np.ndarray] = [np.zeros_like(epsD) for i in range(3)]
@@ -76,7 +76,7 @@ for i, radius in enumerate(radii):
 
 ax.grid(True)
 ax.set_xlim((1,1.7))
-ax.set_ylim((0,16))
+ax.set_ylim((0,20))
 ax.set_xlabel(r"$\varepsilon_d$", fontsize=12)
 ax.set_ylabel(r"$Q_{\max}/\omega_pE_0^2$", fontsize=12)
 plt.show()
