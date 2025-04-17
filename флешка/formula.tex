@@ -1,0 +1,132 @@
+\documentclass{article}
+
+\usepackage[english]{babel}
+
+\usepackage[letterpaper,top=2cm,bottom=2cm,left=3cm,right=3cm,marginparwidth=1.75cm]{geometry}
+\usepackage{amsmath,amsfonts,amssymb,bm}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+
+\begin{document}
+\def \eps {\varepsilon}
+\def \w {\omega}
+\def \ph {\varphi}
+\def \kp { \varkappa}
+\newcommand{\dt}[1]{\frac{\partial {#1}}{\partial t}}
+\newcommand{\dn}[1]{\left.\frac{\partial #1}{\partial n}\right|_{ S}}
+\newcommand{\dr}[1]{\left.\frac{\partial #1}{\partial r}\right|_{ r = a}}
+\newcommand{\sumexp}[1]{\frac{{#1} e^{i \w t} + {#1}^* e^{-i \w t}}{2}}
+\newcommand{\sumexptwo}[1]{\frac{{#1} e^{2 i \w t} + {#1}^* e^{-2 i \w t}}{2}}
+
+222
+
+\[ \operatorname{div}\,\mathbf{F} =\frac{\partial F_x}{\partial x} +\frac{\partial F_y}{\partial y} +\frac{\partial F_z}{\partial z}\]
+
+\[ \dt{N} + \operatorname{div}(N \vec{v}) = 0 \]
+
+\[ \dt{\vec{v}} + \nu \vec{v} +(\vec{v} \nabla)\vec{v} = \frac{e}{m}\vec{E} - \frac{1}{mN} \nabla p\]
+
+\[ p = p_0 (N/N_0)^\gamma\]
+
+\[ p_0 = m v_f^2 N_0/5\]
+
+\[ v_f = \hbar (3 \pi^2 N_0)^\frac{1}{3}/m\]
+
+\[ \operatorname{div} \vec{E} = \frac{4 \pi}{\eps_\infty}e(N-N_0)\]
+
+\[ N = N_0 + \sumexp{N_1} \]
+
+\[ \vec{E} = \sumexp{\vec{E}_1}\]
+
+\[ \vec{v} = \sumexp{\vec{v}_1}\]
+
+\[ \Delta \rho_1 + k_p^2(\w)\rho_1 = 0\]
+
+\[ \Delta \ph_1 = - \frac{4 \pi}{\eps_\infty} \rho_1 \]
+
+\[  k_p(\w) = \sqrt{[\w(\w - i\nu) - \w_p^2/\eps_\infty]/v_0^2} \]
+
+\[ v_0^2 = 3 v_f^2 / 5\]
+
+\[ w_p^2 = 4 \pi e^2 N_0 / m\]
+
+\[ \eps_\infty \dn{\ph_1} = \eps_d \dn{\ph_1^{ex}}  \]
+
+\[ \vec{v_1} = - \frac{e}{i(\w - i \nu)m}\nabla \psi_1\]
+
+\[ \psi_1 = \ph_1 + 4 \pi r_0^2 \rho_1\]
+
+\[ \left. \ph_1 \right|_{ S} = \left. \ph_1^{ex} \right|_{ S} \]
+\[ \dn{\psi_1} = \dn{(\ph_1 + 4 \pi r_0^2 \rho_1)} = 0 \]
+
+\[ N = N_0 + \sumexp{N_1} \ + \sumexptwo{N_2} \]
+
+\[ \vec{E} =\sumexp{\vec{E}_1} + \sumexptwo{\vec{E}_2}\]
+
+\[ \vec{v} =\sumexp{\vec{v}_1} + \sumexptwo{\vec{v}_2}\]
+
+\[ 2i\w N_2 + \operatorname{div}(N_0 \vec{v_2}) - \frac{2i\w}{e}\rho^{ex} = 0\]
+
+\[ (2i\w + \nu) \vec{v_2} = \frac{e}{m}N_0\vec{E_2} - \frac{v_0^2}{N_0} \nabla N_2 - \frac{e}{m} N_0 \nabla \ph^{ex}  \]
+
+\[ - 2i\w \rho^{ex} = \frac{1}{2}\operatorname{div} \rho_1 \vec{v_1}\]
+
+\[ \ph^{ex} = \frac{m}{4e}(\frac{v_0^2}{N_0^2}N_1^2 + v_1^2)\]
+
+\[ \Delta \rho_2 + k_p^2(2\w)\rho_2 = -\frac{1}{4 \pi r_0^2} \Delta \ph^{ex} + \frac{2\w(2\w - i \nu)}{\w_p^2r_0^2} \rho^{ex}\]
+
+\[ \left. \ph_2 \right|_{ S} = \left. \ph_2^{ex} \right|_{ S} \]
+\[ \eps_\infty \dn{\ph_2} = \eps_d \dn{\ph_2^{ex}}  \]
+
+
+
+\[ \psi_2 = \ph_2 + 4 \pi r_0^2 \rho_2 + \ph^{ex}\]
+
+\[ q = \frac{1}{T} \int\limits_t^{t+T} m \nu \vec{f} \vec{v} dt = \frac{1}{2} m \nu Re(\vec{f_1} \vec{v_1^*} +\vec{f_2} \vec{v_2^*})\]
+
+\[ Q = \frac{\nu}{2} Re \iiint (\frac{\w}{i(\w - i \nu)}\rho_1 \psi_1^* + \frac{2\w}{i(2\w - i \nu)}\rho_2 \psi_2^*)dV\]
+
+\[ \rho_1 = \rho_{01}j_1(k_pr)\cos\theta\]
+
+\[ \ph_1^{ex} = (-E_0r + \frac{P}{r^2})\cos\theta\]
+
+\[ C= \frac{-3\eps_dE}{\eps + 2\eps_d [1 + (\eps/\eps_\infty - 1) G_1]}\]
+
+\[ \rho_{01} = \frac{\eps -1}{4\pi}k_p\frac{C}{j_1' (\kp)}\]
+
+\[ \rho_1 = C \frac{-k_p^2a\w_p^2}{4\pi\w(\w - i \nu) } \frac{j_1(k_p r)}{\kp_1 j_1' (\kp_1)}\cos\theta\ \]
+
+\[ \ph^{ex} = \frac{e}{4 \pi \w_p^2}[(4\pi)^2r_0^2\rho_1^2 - \frac{\w_p^2}{(\w - i \nu)^2}(\nabla \psi_1)^2] \]
+
+\[ \rho^{ex} = \frac{e}{4 m \w(\w - i \nu)}(-4 \pi \rho_1^2 \frac{w(\w - i \nu)}{\w_p^2} + \nabla \psi_1\nabla \rho_1)\]
+
+\[ \ph^{ex} = F_0^\ph(r)P_0(\cos\theta) + F_2^\ph(r)P_2(\cos\theta)\]
+
+\[ \rho^{ex} = F_0^\rho(r)P_0(\cos\theta) + F_2^\rho(r)P_2(\cos\theta)\]
+
+\[ \ph_2 = R_0(r)P_0(\cos\theta) + R_2(r)P_2(\cos\theta)\]
+
+\[ \rho_2 = \Phi_0(r)P_0(\cos\theta) + \Phi_2(r)P_2(\cos\theta)\]
+
+\[ (\hat L_n + \kp_p^2) R_n = -\frac{1}{4 \pi r_0^2}\hat L_n F_n^\ph  + \frac{2\w(2\w - i \nu)}{\w_p^2r_0^2}F_n^\rho \]
+
+\[ \hat L_n \Phi_n = -\frac{4\pi}{\eps_\infty}R_n\]
+
+\[ \left.\frac{\partial }{\partial r} (\Phi_n  + 4\pi r_0^2R_n + F_n^\ph)\right|_{ r = a} = 0 \]
+
+\[ \left. (\Phi_2  + \frac{r \eps_\infty}{3\eps_d}\frac{\partial }{\partial r}\Phi_2)\right|_{ r = a} = 0 \]
+
+\[ \Phi_0 (a) = 0\]
+
+\[ Q_n = \frac{2\pi\nu}{2n+1}Re \frac{2\w}{i(2\w - i \nu)} \int\limits_0^a R_n(\Phi_n  + 4\pi r_0^2R_n + F_n^\ph)^*r^2dr\]
+
+\[ Q_d = \frac{2\pi\nu}{3}Re \frac{\w}{i(\w - i \nu)}\int\limits_0^a R_1(\Phi_1  + 4\pi r_0^2R_1 )^*r^2dr\]
+
+\[ \]
+
+
+
+
+
+
+\end{document}
