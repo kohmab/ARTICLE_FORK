@@ -72,7 +72,8 @@ for i, radius in enumerate(radii):
 
     ax.plot(epsD, max_losses, label='max loss',color=colors[i])
     for m, losses in enumerate(mult_losses):
-        ax.plot(epsD, losses, color=colors[i], linestyle=linestyles[m])
+        if i == 0: 
+            ax.plot(epsD, losses, color=colors[i], linestyle=linestyles[m])
 
 ax.grid(True)
 ax.set_xlim((1,1.7))
