@@ -17,9 +17,9 @@ from losses import getLosses, generateFilename
 Vf = 1.07e8  # cm/s
 wp_eV = 5.71  # eV
 nu_eV = 0.03  # 0.0276  # eV
-radius = 10e-7  # cm
+radius = 5e-7  # cm
 epsInf = 1
-field_intensity = 1e8  # W/cm^2
+field_intensity = 0.5e8  # W/cm^2
 
 # Program parameters
 epsDmin = 1

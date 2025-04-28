@@ -16,7 +16,7 @@ Vf = 1.07e8  # cm/s
 wp_eV = 5.71  # eV
 nu_eV = 0.03  # 0.0276  # eV
 epsInf = 1
-field_intensity = 1e8  # W/cm^2
+field_intensity = 0.5e8  # W/cm^2
 
 # Program parameters
 epsDmin = 1
@@ -26,7 +26,7 @@ Nw = 151
 Nr = 100
 hash_str = []
 #radii = (7e-7, 10e-7)
-radii = (7e-7, 10e-7)
+radii = (5e-7, 7e-7, 10e-7)
 for radius in radii:  # cm
     #
     sorted_locals = sorted(locals().items(), key=lambda item: item[0])
@@ -35,7 +35,7 @@ for radius in radii:  # cm
     #
 fig, ax = plt.subplots(figsize=(5, 4), layout='constrained')
 
-colors = {0: '#77AB30', 1: '#D95A19'}
+colors = {0: '#77AB30', 1: '#D95A19', 2:'#0b62a4'}
 linestyles = ["--", ":", "-."]
 
 for i, radius in enumerate(radii):
@@ -72,8 +72,11 @@ for i, radius in enumerate(radii):
 
     ax.plot(epsD, max_losses, label='max loss',color=colors[i])
     for m, losses in enumerate(mult_losses):
-        if i == 0: 
+        if i == 0:
             ax.plot(epsD, losses, color=colors[i], linestyle=linestyles[m])
+        else:
+            if m == 1:
+                ax.plot(epsD, losses, color=colors[i], linestyle=linestyles[m])
 
 ax.grid(True)
 ax.set_xlim((1,1.7))
