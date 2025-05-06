@@ -16,7 +16,7 @@ Vf = 1.07e8  # cm/s
 wp_eV = 5.71  # eV
 nu_eV = 0.03  # 0.0276  # eV
 epsInf = 1
-field_intensity = 0.5e8  # W/cm^2
+# field_intensity = 1e8  # W/cm^2
 
 # Program parameters
 epsDmin = 1
@@ -27,8 +27,9 @@ Nr = 100
 hash_str = []
 #radii = (7e-7, 10e-7)
 radii = (5e-7, 7e-7, 10e-7)
+field_intensitys = (0.5e8, 1e8, 1e8)
 for radius in radii:  # cm
-    #
+    field_intensity = field_intensitys[radii.index(radius)]
     sorted_locals = sorted(locals().items(), key=lambda item: item[0])
     hash_names = {k: v for k, v in sorted_locals if isinstance(v, float) or isinstance(v, int)}
     hash_str.append(generateFilename(*hash_names.values()))

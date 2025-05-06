@@ -9,7 +9,7 @@ from losses import wp, a, nu, Vf
 
 V0 = np.sqrt(3 / 5) * Vf
 r0 = V0 / wp
-alpha = r0 / a
+alpha = r0 / 8e-7
 
 Nres = 7
 NepsD = 50
